@@ -1,19 +1,33 @@
+import { Suspense, lazy } from "react";
+import { Helmet } from "react-helmet";
+import { BeatLoader } from "react-spinners";
 import "./App.css";
-import CommonButton from "./components/common/CommonButton";
+import { Flex, useColorMode } from "@chakra-ui/react";
+
+const HeroSection = lazy(() => import("./components/Home/Hero"));
 
 function App() {
+  const { colorMode } = useColorMode();
   return (
     <div className="App">
-      <h1>Harsh Raghavani</h1>
-      <CommonButton
-        rippleColor={"white"}
-        duration={700}
-        btnText={"Harsh"}
-        bgColor={"linkedin"}
-        variant={"solid"}
-        textColor={"white"}
-        hoverBgColor={"linkedin"}
-      />
+      <Helmet>
+        <title>Harsh Raghavani</title>
+        <meta name="description" content="Harsh Raghavani Portfolio" />
+        <meta name="keywords" content="Harsh Raghavani" />
+      </Helmet>
+      <Suspense
+        fallback={
+          <Flex justifyContent={"center"} alignItems={"center"} minH={"100vh"}>
+            <BeatLoader
+              speedMultiplier={1.5}
+              margin={3}
+              color={colorMode === "dark" ? "white" : "black"}
+            />
+          </Flex>
+        }
+      >
+        <HeroSection />
+      </Suspense>
     </div>
   );
 }

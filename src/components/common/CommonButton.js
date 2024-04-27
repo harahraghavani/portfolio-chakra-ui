@@ -22,6 +22,7 @@ const CommonButton = ({
                 bgGradient={gradientColor}
                 _hover={hoverBgColor}
                 color={textColor}
+                cursor={"pointer"}
             >
                 {btnText}
             </Button>
