@@ -36,19 +36,22 @@ const Hero = () => {
                 justifyContent={"center"}
                 alignItems={"center"}
                 minHeight={"calc(100vh - 80px)"}
+                position={"relative"}
             >
                 <Flex
                     justifyContent={"space-between"}
                     alignItems={"center"}
                     flexDirection={"column"}
+
                 >
                     <Flex justifyContent={"center"} alignItems={"center"}>
                         <Box>
                             <Heading
                                 as="h1"
-                                size="2xl"
+                                fontSize={{ base: '28px', sm: "40px", md: '40px', lg: '48px' }}
                                 bgClip={"text"}
                                 mb={4}
+                                transition={"all 0.3s ease-in-out"}
                                 bgGradient={
                                     colorMode === "light"
                                         ? "linear(to-r,#FC5C7D,#6A82FB)"

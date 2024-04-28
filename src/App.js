@@ -5,6 +5,7 @@ import "./App.css";
 import { Flex, useColorMode } from "@chakra-ui/react";
 
 const HeroSection = lazy(() => import("./components/Home/Hero"));
+const AboutMeSection = lazy(() => import("./components/Home/AboutMe"));
 
 function App() {
   const { colorMode } = useColorMode();
@@ -27,6 +28,7 @@ function App() {
         }
       >
         <HeroSection />
+        <AboutMeSection />
       </Suspense>
     </div>
   );
