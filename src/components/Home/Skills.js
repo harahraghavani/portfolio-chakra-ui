@@ -6,7 +6,7 @@ import CommonCard from "../common/CommonCard";
 
 const Skills = () => {
     return (
-        <Box my={5}>
+        <Box my={10}>
             <Helmet>
                 <title>Harsh Raghavani</title>
                 <meta name="description" content="Harsh Raghavani Portfolio" />

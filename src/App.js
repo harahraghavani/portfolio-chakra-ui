@@ -10,6 +10,8 @@ const SkillsSection = lazy(() => import("./components/Home/Skills"));
 
 function App() {
   const { colorMode } = useColorMode();
+
+
   return (
     <div className="App">
       <Helmet>
