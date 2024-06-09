@@ -1,17 +1,12 @@
-import {
-    Drawer,
-    DrawerBody,
-    DrawerContent,
-    DrawerOverlay,
-    Flex,
-    Box,
-    Heading,
-} from "@chakra-ui/react";
+import { Drawer, DrawerBody, DrawerContent, DrawerOverlay, Flex, Box, Heading } from "@chakra-ui/react";
 import { IoClose } from "react-icons/io5";
 import DisplayColor from "./DisplayColor";
 import { Colors } from "../../constant/Colors";
+import CommonButton from "./CommonButton";
+import { useTheme } from "../../hooks/theme/useTheme";
 
 const CommonDrawer = ({ isOpen, onClose }) => {
+    const { resetToDefault } = useTheme();
     return (
         <Drawer
             isOpen={isOpen}
@@ -43,11 +38,23 @@ const CommonDrawer = ({ isOpen, onClose }) => {
                         {Colors.map((item) => {
                             return (
                                 <Box key={item.id}>
-                                    <DisplayColor data={item} />
+                                    <DisplayColor data={item} onClose={onClose} />
                                 </Box>
                             );
                         })}
                     </Flex>
+                    <Box mt={4}>
+                        <CommonButton
+                            btnText="Reset to default"
+                            variant="outline"
+                            rounded="md"
+                            bgColor="blackAplha.700"
+                            onClick={() => {
+                                resetToDefault()
+                                onClose();
+                            }}
+                        />
+                    </Box>
                 </DrawerBody>
             </DrawerContent>
         </Drawer>

@@ -3,12 +3,16 @@ import { CiLight, CiDark } from "react-icons/ci";
 import { IoMdSettings } from "react-icons/io";
 import CommonDrawer from "./CommonDrawer";
 import { useEffect, useRef, useState } from "react";
+import { useTheme } from "../../hooks/theme/useTheme";
+import MyImage from "../../assets/images/Harsh.png"
 
 const NavBar = () => {
     const { colorMode, toggleColorMode } = useColorMode();
     const { isOpen, onOpen, onClose } = useDisclosure();
     const navbarRef = useRef(null);
     const [hasScrolled, setHasScrolled] = useState(false);
+
+    const { selectedColor } = useTheme();
 
     useEffect(() => {
         let prevScrollpos = window.pageYOffset;
@@ -49,14 +53,14 @@ const NavBar = () => {
     return (
         <Box position="fixed" w="100%" ref={navbarRef} transition={"all 0.3s ease"} zIndex={999}>
             <Flex justifyContent={"space-between"} alignItems={"center"} p={"20px"}>
-                <Tag size='lg' colorScheme='red' borderRadius='full'>
+                <Tag size='lg' colorScheme={selectedColor !== null ? selectedColor : "blue"} borderRadius='full'>
                     <Avatar
-                        src=''
+                        src={MyImage}
                         size='xs'
                         name='Harsh Raghavani'
                         ml={-1}
                         mr={2}
-                        colorScheme="red"
+                        colorScheme={selectedColor !== null ? selectedColor : "blue"}
                     />
                     <TagLabel textTransform={"uppercase"}>Harsh</TagLabel>
                 </Tag>

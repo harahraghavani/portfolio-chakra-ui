@@ -12,9 +12,11 @@ import {
 import { TypeAnimation } from "react-type-animation";
 import { BiMouse } from "react-icons/bi";
 import { motion } from "framer-motion";
+import { useTheme } from "../../hooks/theme/useTheme";
 
 const Hero = () => {
     const { colorMode } = useColorMode();
+    const { selectedColor } = useTheme();
 
     const animationKeyframes = keyframes`
   0% { transform: scale(1)}
@@ -42,25 +44,48 @@ const Hero = () => {
                     justifyContent={"space-between"}
                     alignItems={"center"}
                     flexDirection={"column"}
-
                 >
                     <Flex justifyContent={"center"} alignItems={"center"}>
                         <Box>
-                            <Heading
-                                as="h1"
-                                fontSize={{ base: '28px', sm: "40px", md: '40px', lg: '48px' }}
-                                bgClip={"text"}
-                                mb={4}
-                                transition={"all 0.3s ease-in-out"}
-                                bgGradient={
-                                    colorMode === "light"
-                                        ? "linear(to-r,#FC5C7D,#6A82FB)"
-                                        : "linear(to-r, #667db6, #0082c8, #0082c8, #667db6)"
-                                }
-                                textTransform={"uppercase"}
-                            >
-                                Harsh Raghavani
-                            </Heading>
+                            {selectedColor !== null ? (
+                                <Heading
+                                    as="h1"
+                                    fontSize={{
+                                        base: "28px",
+                                        sm: "40px",
+                                        md: "40px",
+                                        lg: "48px",
+                                    }}
+                                    mb={4}
+                                    transition={"all 0.3s ease-in-out"}
+                                    textTransform={"uppercase"}
+                                    color={`${selectedColor}.400`}
+                                >
+                                    Harsh Raghavani
+                                </Heading>
+                            ) : (
+                                <Heading
+                                    as="h1"
+                                    fontSize={{
+                                        base: "28px",
+                                        sm: "40px",
+                                        md: "40px",
+                                        lg: "48px",
+                                    }}
+                                    bgClip={"text"}
+                                    mb={4}
+                                    transition={"all 0.3s ease-in-out"}
+                                    bgGradient={
+                                        colorMode === "light"
+                                            ? "linear(to-r,#FC5C7D,#6A82FB)"
+                                            : "linear(to-r, #667db6, #0082c8, #0082c8, #667db6)"
+                                    }
+                                    textTransform={"uppercase"}
+                                >
+                                    Harsh Raghavani
+                                </Heading>
+                            )}
+
                             <Box textAlign={"center"}>
                                 <TypeAnimation
                                     sequence={[

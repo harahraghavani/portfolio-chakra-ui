@@ -11,7 +11,9 @@ const CommonButton = ({
     gradientColor,
     hoverBgColor,
     textColor,
-    rippleColor
+    rippleColor,
+    rounded = "sm",
+    onClick,
 }) => {
     return (
         <Ripples color={rippleColor} during={duration}>
@@ -23,6 +25,8 @@ const CommonButton = ({
                 _hover={hoverBgColor}
                 color={textColor}
                 cursor={"pointer"}
+                rounded={rounded}
+                onClick={onClick ? onClick : null}
             >
                 {btnText}
             </Button>
