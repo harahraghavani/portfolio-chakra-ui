@@ -1,43 +1,26 @@
-import { Box, Flex, Grid, Heading } from "@chakra-ui/react";
-import React from "react";
-import { Helmet } from "react-helmet";
-import SkillsData from "../../constant/Skills.json"
-import CommonCard from "../common/CommonCard";
+import { Box, Flex, Grid } from "@chakra-ui/react";
+import CommonHeading from "../common/CommonHeading";
+import { MarginProvider } from "../../context/MarginContext";
+import CommonSkills from "../common/CommonSkills";
 
 const Skills = () => {
     return (
-        <Box my={10}>
-            <Helmet>
-                <title>Harsh Raghavani</title>
-                <meta name="description" content="Harsh Raghavani Portfolio" />
-                <meta name="keywords" content="Harsh Raghavani" />
-            </Helmet>
+        <MarginProvider>
             <Flex justifyContent={"center"} flexDirection={"column"}>
                 <Flex justifyContent={"center"} mb={10}>
-                    <Heading as={"h1"} size={"md"}>
-                        Creative Proficencies
-                    </Heading>
+                    <CommonHeading headingText="Creative Proficencies" />
                 </Flex>
-                <Grid
-                    templateColumns={{
-                        base: "repeat(1, 1fr)",
-                        sm: "repeat(1, 1fr)",
-                        md: "repeat(2, 1fr)",
-                        lg: "repeat(4, 1fr)",
-                    }}
-                    m={"auto"}
-                    gap={12}
-                    justifyContent={"center"}
-                >
-                    {Object.entries(SkillsData).map(([category, skills]) => (
-                        <Box key={category}>
-                            <CommonCard category={category} skills={skills} />
-                        </Box>
-                    ))}
-
-                </Grid>
+                <Box mx={{
+                    base: "50px",
+                    md: "150px",
+                    lg: "400px",
+                    xl: "600px",
+                    "2xl": "600px",
+                }}>
+                    <CommonSkills />
+                </Box>
             </Flex>
-        </Box>
+        </MarginProvider >
     );
 };
 

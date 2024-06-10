@@ -1,6 +1,5 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import NavBar from "../common/NavBar";
-import { Helmet } from "react-helmet";
 import {
     Box,
     Flex,
@@ -13,6 +12,7 @@ import { TypeAnimation } from "react-type-animation";
 import { BiMouse } from "react-icons/bi";
 import { motion } from "framer-motion";
 import { useTheme } from "../../hooks/theme/useTheme";
+import CommonMeta from "../common/CommonMeta";
 
 const Hero = () => {
     const { colorMode } = useColorMode();
@@ -28,11 +28,7 @@ const Hero = () => {
 
     return (
         <Fragment>
-            <Helmet>
-                <title>Harsh Raghavani</title>
-                <meta name="description" content="Harsh Raghavani Portfolio" />
-                <meta name="keywords" content="Harsh Raghavani" />
-            </Helmet>
+            <CommonMeta />
             <NavBar />
             <Flex
                 justifyContent={"center"}

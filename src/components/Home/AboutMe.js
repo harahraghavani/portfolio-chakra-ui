@@ -1,21 +1,17 @@
-import React from "react";
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import AboutMeData from "../../constant/AboutMe.json";
-import { Helmet } from "react-helmet";
+import CommonHeading from "../common/CommonHeading";
+import { MarginProvider } from "../../context/MarginContext";
 
 const AboutMe = () => {
+
+
+
     return (
-        <Box mt={5}>
-            <Helmet>
-                <title>Harsh Raghavani</title>
-                <meta name="description" content="Harsh Raghavani Portfolio" />
-                <meta name="keywords" content="Harsh Raghavani" />
-            </Helmet>
+        <MarginProvider>
             <Flex justifyContent={"center"} flexDirection={"column"}>
                 <Flex justifyContent={"center"} mb={5}>
-                    <Heading as={"h1"} size={"md"}>
-                        About, Harsh!
-                    </Heading>
+                    <CommonHeading headingText="About, Harsh!" />
                 </Flex>
                 <Flex justifyContent={"center"} flexDirection={"column"} gap={6} p={6}>
                     {AboutMeData.map((item) => (
@@ -31,7 +27,7 @@ const AboutMe = () => {
                     ))}
                 </Flex>
             </Flex>
-        </Box>
+        </MarginProvider>
     );
 };
 
