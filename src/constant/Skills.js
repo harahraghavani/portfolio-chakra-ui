@@ -1,10 +1,17 @@
-{
+export const Skills = {
   "Technical Skills": [
-    "React JS, Next JS, Typescript",
-    "Node JS, Express JS, Mongodb",
-    "Bootstrap, Tailwind CSS",
-    "Daisy UI, Material Tailwind",
-    "MUI, Chakra UI",
+    "React JS",
+    "Next JS",
+    "Typescript",
+    "Node JS",
+    "Express JS",
+    "Mongodb",
+    "Bootstrap",
+    "Tailwind CSS",
+    "Daisy UI",
+    "Material Tailwind",
+    "MUI",
+    "Chakra UI",
     "Firebase",
     "UI Development"
   ],

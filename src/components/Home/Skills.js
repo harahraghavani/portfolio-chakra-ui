@@ -1,9 +1,12 @@
-import { Box, Flex, Grid } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import CommonHeading from "../common/CommonHeading";
 import { MarginProvider } from "../../context/MarginContext";
-import CommonSkills from "../common/CommonSkills";
+import TerminalCard from "../common/TerminalCard";
+import { useRef } from "react";
 
 const Skills = () => {
+    const terminalRef = useRef(null);
+
     return (
         <MarginProvider>
             <Flex justifyContent={"center"} flexDirection={"column"}>
@@ -11,13 +14,9 @@ const Skills = () => {
                     <CommonHeading headingText="Creative Proficencies" />
                 </Flex>
                 <Box mx={{
-                    base: "50px",
-                    md: "150px",
-                    lg: "400px",
-                    xl: "600px",
-                    "2xl": "600px",
-                }}>
-                    <CommonSkills />
+                    base: "30px",
+                }} ref={terminalRef}>
+                    <TerminalCard />
                 </Box>
             </Flex>
         </MarginProvider >
