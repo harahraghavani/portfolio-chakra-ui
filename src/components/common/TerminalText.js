@@ -1,8 +1,7 @@
-import { Box, Flex, Tag, Text, useColorMode } from "@chakra-ui/react";
+import { Box, Flex, Tag, Text } from "@chakra-ui/react";
 
 const TerminalText = ({ command = "", text = "", fw = false }) => {
 
-    const { colorMode } = useColorMode();
     return (
         <Box mb={2.5}>
             <Flex alignItems="center" gap={2}>
@@ -10,7 +9,6 @@ const TerminalText = ({ command = "", text = "", fw = false }) => {
                     <Tag
                         fontWeight="semibold"
                         colorScheme="green"
-                        textColor={colorMode === "dark" ? "black" : "white"}
                         variant="solid"
                         borderRadius="inherit"
                     >
