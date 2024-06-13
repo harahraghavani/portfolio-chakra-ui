@@ -14,8 +14,8 @@ const Skills = () => {
                     <CommonHeading headingText="Creative Proficencies" />
                 </Flex>
                 <Box mx={{
-                    base: "30px",
-                }} ref={terminalRef}>
+                    base: "50px",
+                }} ref={terminalRef} className="skills-terminal-block" shadow="xl">
                     <TerminalCard />
                 </Box>
             </Flex>

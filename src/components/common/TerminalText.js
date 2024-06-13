@@ -1,10 +1,26 @@
-import { Text } from '@chakra-ui/react'
-import React from 'react'
+import { Box, Flex, Tag, Text, useColorMode } from "@chakra-ui/react";
 
-const TerminalText = ({ text = "", fw = false }) => {
+const TerminalText = ({ command = "", text = "", fw = false }) => {
+
+    const { colorMode } = useColorMode();
     return (
-        <Text mb={2} fontWeight={fw ? "bold" : ""}>{text}</Text>
-    )
-}
+        <Box mb={2.5}>
+            <Flex alignItems="center" gap={2}>
+                {command !== "" && (
+                    <Tag
+                        fontWeight="semibold"
+                        colorScheme="green"
+                        textColor={colorMode === "dark" ? "black" : "white"}
+                        variant="solid"
+                        borderRadius="inherit"
+                    >
+                        {command}
+                    </Tag>
+                )}
+                <Text fontWeight={fw ? "bold" : ""}>{text}</Text>
+            </Flex>
+        </Box>
+    );
+};
 
-export default TerminalText
+export default TerminalText;

@@ -16,3 +16,9 @@
   font-size: 20px;
   font-weight: 400;
 }
+
+.skills-terminal-block #terminalEditor {
+  min-height: 500px;
+  max-height: 500px;
+  overflow-y: scroll;
+}
