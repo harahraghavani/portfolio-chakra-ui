@@ -2,9 +2,11 @@ import { Box, Flex } from "@chakra-ui/react";
 import CommonHeading from "../common/CommonHeading";
 import { MarginProvider } from "../../context/MarginContext";
 import TerminalCard from "../common/TerminalCard";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { useBreakpointValue } from '@chakra-ui/react'
 
 const Skills = () => {
+    const [isMobileScreen, setIsMobileScreen] = useState(false)
     const terminalRef = useRef(null);
 
     return (
