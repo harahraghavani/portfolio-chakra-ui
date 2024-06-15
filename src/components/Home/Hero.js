@@ -33,7 +33,7 @@ const Hero = () => {
             <Flex
                 justifyContent={"center"}
                 alignItems={"center"}
-                minHeight={"calc(100vh - 0px)"}
+                minHeight={"100svh"}
                 position={"relative"}
             >
                 <Flex

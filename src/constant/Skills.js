@@ -32,7 +32,8 @@ export const Skills = {
   "Interests / Hobbies": [
     "UI / UX Designing",
     "Photography",
-    "Photo Editing (Color Grading)",
+    "Photo Editing",
+    "Color Grading",
     "Video Editing",
     "Cricket"
   ]

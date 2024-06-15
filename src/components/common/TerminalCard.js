@@ -85,7 +85,7 @@ const TerminalCard = () => {
                 commands={commands}
                 welcomeMessage={welcomeMessageJsx()}
                 theme={colorMode === "dark" ? "dark" : "light"}
-                prompt='harsh-raghavani ~'
+                prompt='harsh_raghavani ~'
             />
         </div>
     );
