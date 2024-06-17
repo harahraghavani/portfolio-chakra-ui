@@ -6,7 +6,7 @@ const TerminalSkillBadge = ({ data }) => {
     const { selectedColor } = useTheme()
     return (
         <Badge
-            colorScheme={selectedColor !== null ? selectedColor : "green"}
+            colorScheme={selectedColor !== null ? selectedColor : "blue"}
             p={2}
             px={3}
             fontSize="sm"

@@ -79,6 +79,7 @@ const TerminalCard = () => {
         );
     };
 
+
     return (
         <div>
             <ReactTerminal
