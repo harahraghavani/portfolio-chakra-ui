@@ -9,7 +9,6 @@ const TerminalSkillBadge = ({ data }) => {
             colorScheme={selectedColor !== null ? selectedColor : "blue"}
             p={2}
             px={3}
-            fontSize="sm"
             rounded="full"
             letterSpacing={"1px"}
         >

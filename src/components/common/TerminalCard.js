@@ -10,6 +10,7 @@ const TerminalCard = () => {
         help: (
             <Box my={5}>
                 <TerminalText text="Available Commands:" fw={true} />
+
                 <TerminalText
                     command="technical_skills"
                     text="() => Lists of all technical skills"

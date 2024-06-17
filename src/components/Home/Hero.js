@@ -72,9 +72,7 @@ const Hero = () => {
                                     mb={4}
                                     transition={"all 0.3s ease-in-out"}
                                     bgGradient={
-                                        colorMode === "light"
-                                            ? "linear(to-r,#FC5C7D,#6A82FB)"
-                                            : "linear(to-r, #667db6, #0082c8, #0082c8, #667db6)"
+                                        "linear(to-r, #667db6, #0082c8, #0082c8, #667db6)"
                                     }
                                     textTransform={"uppercase"}
                                 >
