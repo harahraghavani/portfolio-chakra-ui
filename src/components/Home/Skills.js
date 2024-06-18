@@ -1,15 +1,21 @@
-import { Box, Flex, Grid } from "@chakra-ui/react";
+import {
+    Accordion,
+    AccordionButton,
+    AccordionIcon,
+    AccordionItem,
+    AccordionPanel,
+    Box,
+    Flex,
+    Heading,
+    useColorMode,
+} from "@chakra-ui/react";
 import CommonHeading from "../common/CommonHeading";
 import { MarginProvider } from "../../context/MarginContext";
-import TerminalCard from "../common/TerminalCard";
-import { useRef } from "react";
-import { useMediaQuery } from "@chakra-ui/react";
-import TerminalCardMobile from "../common/TerminalCardMobile";
 import { Skills } from "../../constant/Skills";
+import SkillsTag from "../common/SkillsTag";
 
 const Skill = () => {
-    const [isLargerThan1024] = useMediaQuery("(min-width: 1024px)");
-    const terminalRef = useRef(null);
+    const { colorMode } = useColorMode();
 
     return (
         <MarginProvider>
@@ -17,46 +23,73 @@ const Skill = () => {
                 <Flex justifyContent={"center"} mb={10}>
                     <CommonHeading headingText="Creative Proficencies" />
                 </Flex>
-                {isLargerThan1024 ? (
-                    <Box
-                        mx={{
-                            base: "50px",
-                        }}
-                        ref={terminalRef}
-                        className="skills-terminal-block"
-                        shadow="xl"
-                    >
-                        <TerminalCard />
-                    </Box>
-                ) : (
-                    <Grid
-                        templateColumns={{
-                            base: "repeat(1, 1fr)",
-                            md: "repeat(2, 1fr)",
-                        }}
-                        mx="auto"
-                        gap={10}
-                        justifyContent="center"
-                        alignItems="center"
-                    >
-                        {Object.entries(Skills).map(([category, skills]) => {
-                            return (
-                                <Box
-                                    width={{
-                                        base: 300,
-                                        sm: 350,
-                                        md: 350,
-                                    }}
-                                    height="100%"
-                                    minHeight="100%"
-                                    key={category}
+                <Box
+                    mx={{
+                        base: "15px",
+                        md: "50px",
+                    }}
+                >
+                    {Object.keys(Skills).map((data) => {
+                        return (
+                            <Accordion allowToggle mb={7}>
+                                <AccordionItem
+                                    borderTopWidth="0px"
+                                    borderBottomWidth="0px"
+                                    borderBottom="none"
+                                    p={1}
                                 >
-                                    <TerminalCardMobile title={category} data={skills} />
-                                </Box>
-                            );
-                        })}
-                    </Grid>
-                )}
+                                    {({ isExpanded }) => (
+                                        <Box
+                                            border={
+                                                isExpanded
+                                                    ? colorMode === "dark"
+                                                        ? "1px solid rgba(255, 255, 255, 0.3)"
+                                                        : "1px solid rgba(0, 0, 0, 0.3)"
+                                                    : colorMode === "dark"
+                                                        ? "1px solid rgba(255, 255, 255, 0.5)"
+                                                        : "1px solid rgba(0, 0, 0, 0.5)"
+                                            }
+                                            rounded="lg"
+                                            boxShadow={isExpanded ? "md" : "lg"}
+                                            transition={"all 0.4s ease-in-out"}
+                                        >
+                                            <AccordionButton
+                                                _hover={{ bg: "none" }}
+                                                _focusVisible={{
+                                                    border: "none",
+                                                }}
+                                            >
+                                                <Heading
+                                                    size="md"
+                                                    flex="1"
+                                                    textAlign="left"
+                                                    py={isExpanded ? 4 : 1.5}
+                                                    px={isExpanded ? 1.5 : ""}
+                                                    transition={"all 0.4s ease-in-out"}
+                                                >
+                                                    {data}
+                                                </Heading>
+                                                <AccordionIcon />
+                                            </AccordionButton>
+
+                                            <AccordionPanel AccordionPanel pb={4}>
+                                                <Flex gap={5} flexWrap="wrap">
+                                                    {Object.keys(Skills[data]).map((ele) => {
+                                                        const skillName = Skills[data][ele].name;
+                                                        const skillIcon = Skills[data][ele].icon;
+                                                        return (
+                                                            <SkillsTag text={skillName} icon={skillIcon} />
+                                                        );
+                                                    })}
+                                                </Flex>
+                                            </AccordionPanel>
+                                        </Box>
+                                    )}
+                                </AccordionItem>
+                            </Accordion>
+                        );
+                    })}
+                </Box>
             </Flex>
         </MarginProvider>
     );

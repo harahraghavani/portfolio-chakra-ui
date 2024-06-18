@@ -1,13 +1,6 @@
 import { Fragment } from "react";
 import NavBar from "../common/NavBar";
-import {
-    Box,
-    Flex,
-    Heading,
-    Text,
-    useColorMode,
-    keyframes,
-} from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, keyframes } from "@chakra-ui/react";
 import { TypeAnimation } from "react-type-animation";
 import { BiMouse } from "react-icons/bi";
 import { motion } from "framer-motion";
@@ -15,7 +8,6 @@ import { useTheme } from "../../hooks/theme/useTheme";
 import CommonMeta from "../common/CommonMeta";
 
 const Hero = () => {
-    const { colorMode } = useColorMode();
     const { selectedColor } = useTheme();
 
     const animationKeyframes = keyframes`
